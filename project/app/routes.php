@@ -11,4 +11,8 @@ Route::post('/user/delete',function(){
 });
 Route::resource('session','sessionController');
 Route::get('login','sessionController@create');
-Route::get('logout','sessionController@destroy');
+Route::get('user/logout','sessionController@destroy');
+Route::get('/user/admin_sign','sessionController@create');
+/*Route::get('/admin',function(){
+	return Redirect::to('user/admin');
+})->before('auth');*/

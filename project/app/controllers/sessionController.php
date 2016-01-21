@@ -20,7 +20,8 @@ class sessionController extends \BaseController {
 	 */
 	public function create()
 	{
-		return View::make('session.admin_sign_in');
+		if(Auth::user()) return Redirect::to('user/admin')->before('auth');
+		return View::make('user.admin_sign');
 	}
 
 
@@ -32,10 +33,10 @@ class sessionController extends \BaseController {
 	public function store()
 	{
 		if(Auth::attempt(Input::only('username','password')))
-		{
-			return Redirect::to('user/admin');
-		}
-		return Return::back()->withInput();
+		
+			return Redirect::to('/user/admin');
+		
+		return 'Failed !';
 	}
 
 
@@ -81,9 +82,10 @@ class sessionController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id)
+	public function destroy()
 	{
-		//
+		Auth::logout();
+		return Redirect::to('user/admin_sign');
 	}
 
 

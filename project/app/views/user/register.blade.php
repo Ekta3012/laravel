@@ -20,4 +20,6 @@
 		{{ Form::password('password') }} {{'<br>'}} {{'<br>'}}
 		{{ Form::submit('Register') }} 
 	{{ Form::close() }}
+	{{link_to('/user/admin_sign','Admin Login')}}
 @stop
+

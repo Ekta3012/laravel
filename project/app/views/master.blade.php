@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Register</title>
+	<title></title>
 </head>
 <body>
 	@yield('header')
 	@yield('content')
 </body>
 </html>
+
 
