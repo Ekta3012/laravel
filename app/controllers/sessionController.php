@@ -20,7 +20,7 @@ class sessionController extends \BaseController {
 	 */
 	public function create()
 	{
-		if(Auth::user()) return Redirect::to('user/admin')->before('auth');
+		if(Auth::check()) return Redirect::to('user/admin');
 		return View::make('user.admin_sign');
 	}
 
