@@ -7,7 +7,7 @@
 @section('content')
 	@foreach($user as $user)
 		<li>{{ $user->username .'&nbsp'}} 
-			{{ Form::open()}}
+			{{ Form::open(['url'=>"user/edit/{$user->username}",'method'=>'PATCH'])}}
 			{{Form::submit('Edit')}}
 			{{Form::close()}}
 			
