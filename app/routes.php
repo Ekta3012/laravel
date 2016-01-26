@@ -13,3 +13,5 @@ Route::get('/user/admin_sign','sessionController@create');
 Route::get('/admin',function(){
 	return Redirect::to('user/admin');
 })->before('auth');
+Route::patch("/user/edit/{userid}",array('uses'=>'userController@edit'));
+Route::patch("/user/edit/{userid}",array('uses'=>'userController@update'));

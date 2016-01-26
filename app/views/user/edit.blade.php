@@ -16,6 +16,6 @@
 		{{ Form::text('phone_num',$user->phone_num) }}  {{'<br>'}}
 		{{ Form::label('password','Password:') }}
 		{{ Form::password('password') }} {{'<br>'}} {{'<br>'}}
-		{{ Form::submit('Save') }} 
+		{{ Form::submit('Update') }} 
 	{{Form::close()}}
 @stop
