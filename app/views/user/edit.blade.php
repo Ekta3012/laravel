@@ -1,11 +1,11 @@
-@extends('master');
+@extends('master')
 
 @section('header')
 	<h1>Edit Details :</h1>
 @stop
 
 @section('content')
-	{{Form::open(['method'=>'PATCH','action'=>'userController@update'])}}
+	{{Form::open(['method'=>'PATCH','action'=>array('userController@update',$user->id)])}}
 		{{ Form::label('username','Username:') }}{{ '<br>' }}
 		{{ Form::text('username',$user->username) }}{{ '<br>' }}
 		{{ Form::label('fullname','Full Name') }} {{ '<br>' }}

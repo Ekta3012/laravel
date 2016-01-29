@@ -66,7 +66,7 @@ class userController extends \BaseController {
 	public function edit($userid)
 	{
 		$user=DB::table('users')->where('id',$userid)->first();
-		return View::make('/user/edit')->withUser($user);
+		return View::make('user.edit')->withUser($user);
 	}
 
 
@@ -76,12 +76,18 @@ class userController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($userid)
+	public function update($id)
 	{
-		$input=Input::all();
-		$user=User::find($userid);
-		$user->update($input);
-		//return Redirect::to('user/admin');
+		
+		$user=User::find($id);
+		//dd($user);
+		$user->username = Input::get('username');
+		$user->fullname = Input::get('fullname');
+		$user->email = Input::get('email');
+		$user->phone_num = Input::get('phone_num');
+		$user->password = Hash::make(Input::get('password'));
+		$user->save();
+		return 'Details Updated Sucessfully';
 
 	}
 
